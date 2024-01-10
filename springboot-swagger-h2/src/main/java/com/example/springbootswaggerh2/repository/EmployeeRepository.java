@@ -7,5 +7,8 @@ import com.example.springbootswaggerh2.model.Employee;
 
 @Repository
 public interface EmployeeRepository extends JpaRepository<Employee, Long> {
+    // Custom query to find a user by email
+    Employee findByEmailId(String emailId);
 
+    boolean existsEmployeeByEmailId(String emailId);
 }

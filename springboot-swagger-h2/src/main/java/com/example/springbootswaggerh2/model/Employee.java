@@ -9,6 +9,7 @@ import javax.persistence.Table;
 
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
+import org.hibernate.annotations.NaturalId;
 
 @Entity
 @Table(name = "EMPLOYEE")
@@ -31,6 +32,11 @@ public class Employee {
 	@Column(name = "DEPARTMENT")
 	@ApiModelProperty(notes = "Employee department")
 	private String department;
+
+	@NaturalId
+	@Column(name = "EMAIL")
+	@ApiModelProperty(notes = "Employee EMail ID")
+	private String emailId;
 	
 	public long getId() {
 		return id;
@@ -55,6 +61,12 @@ public class Employee {
 	}
 	public void setDepartment(String department) {
 		this.department = department;
+	}
+	public String getEmailId() {
+		return emailId;
+	}
+	public void setEmailId(String emailId) {
+		this.emailId = emailId;
 	}
 	@Override
 	public String toString() {

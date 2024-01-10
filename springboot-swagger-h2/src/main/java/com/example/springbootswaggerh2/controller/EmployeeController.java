@@ -28,7 +28,7 @@ import io.swagger.annotations.ApiResponses;
 
 @RestController
 @RequestMapping("/employees")
-@Api(value = "Employee service", description = "Service to manage emoployees")
+@Api(value = "Employee service", description = "Service to manage employees")
 public class EmployeeController {
 	
 	@Autowired

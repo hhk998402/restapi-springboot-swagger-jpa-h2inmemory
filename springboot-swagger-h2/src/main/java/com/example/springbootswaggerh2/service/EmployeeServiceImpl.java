@@ -2,6 +2,7 @@ package com.example.springbootswaggerh2.service;
 
 import java.util.List;
 
+import com.example.springbootswaggerh2.exception.UserAlreadyExistsException;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -17,6 +18,9 @@ public class EmployeeServiceImpl implements EmployeeService {
 
 	@Override
 	public Employee createEmployee(Employee employee) {
+		if(employeeRepository.existsEmployeeByEmailId(employee.getEmailId())) {
+			throw new UserAlreadyExistsException("User with this emailID already exists");
+		}
 		return employeeRepository.save(employee);
 	}
 
